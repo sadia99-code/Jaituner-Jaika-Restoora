@@ -1,0 +1,139 @@
+/* ===================================================================
+ * Animation Styles for Texts and Images
+ * ------------------------------------------------------------------- */
+
+/* Reset animation until visible */
+[data-animate],
+[data-animate-on-scroll] {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+[data-animate].animate-active {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+[data-animate].visible,
+[data-animate-on-scroll].animate-visible {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+@keyframes headerFadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+
+/* Base animation keyframes */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideLeft {
+  from { opacity: 0; transform: translateX(-30px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideRight {
+  from { opacity: 0; transform: translateX(30px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* Utility animation classes */
+.animate-fade-in    { animation: fadeIn 0.4s ease-out forwards; }
+.animate-slide-up   { animation: fadeInUp 0.5s ease-out forwards; }
+.animate-slide-left { animation: slideLeft 0.5s ease-out forwards; }
+.animate-slide-right{ animation: slideRight 0.5s ease-out forwards; }
+.animate-scale-in   { animation: scaleIn 0.5s ease-out forwards; }
+
+/* Image animations */
+.animate-image-fade  { animation: fadeIn 0.8s ease-out forwards; }
+.animate-image-zoom  { animation: scaleIn 0.8s ease-out forwards; }
+.animate-image-slide { animation: fadeInUp 0.8s ease-out forwards; }
+
+/* Staggered animations (disabled delays = instant) */
+.animate-stagger-1,
+.animate-stagger-2,
+.animate-stagger-3,
+.animate-stagger-4,
+.animate-stagger-5,
+.animate-stagger-6 {
+  animation-delay: 0s !important;
+}
+
+/* Hover effects for images */
+.image-hover-zoom {
+  transition: transform 0.2s ease;
+}
+.image-hover-zoom:hover {
+  transform: scale(1.05);
+}
+
+/* ============================================================
+   Typewriter effect for headings
+   Usage: <h1 class="typewriter" style="--characters: 23;">Text</h1>
+   ------------------------------------------------------------ */
+@keyframes typewriter {
+  from { width: 0; }
+  to   { width: 100%; }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50%      { border-color: currentColor; }
+}
+
+.typewriter {
+  --characters: 20; /* override in HTML */
+  overflow: hidden;
+  border-right: 2px solid currentColor;
+  white-space: nowrap;
+  display: inline-block;
+  width: 0;
+  animation:
+    typewriter calc(var(--characters) * 0.1s) steps(var(--characters), end) forwards,
+    blink-caret 0.75s step-end infinite;
+}
+
+/* Pulse animation for accent elements */
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.05); }
+}
+.animate-pulse {
+  animation: pulse 2s infinite;
+}
+
+/* Accessibility: reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Mobile-specific animation adjustments */
+@media screen and (max-width: 768px) {
+  .animate-slide-up,
+  .animate-slide-left,
+  .animate-slide-right {
+    animation-duration: 0.4s;
+  }
+  .animate-image-zoom,
+  .animate-image-slide {
+    animation-duration: 0.6s;
+  }
+}

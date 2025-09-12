@@ -1,0 +1,32 @@
+
+:root{
+  /* override primary (warm terracotta) */
+  --color-1-500: #b44b3a;
+  --color-1-400: #d68b78;
+  --color-1-600: #8a2f2f;
+  --color-1-700: #69241f;
+  --color-1-800: #4f1b18;
+
+  /* secondary: soft cream */
+  --color-2-500: #f6e8d9;
+  --color-2-400: #f9efe2;
+  --color-2-600: #e5d1bf;
+
+  /* RGB values for rgba */
+  --color-1-400-rgb: 214, 139, 120;
+
+  /* neutrals / background */
+  --color-bg: #fffaf7;
+  --color-neutral-950: #111111;
+
+  /* accents */
+  --color-success: #6aa69b;
+  --color-success-content: #ffffff;
+
+  /* link hover color */
+  --color-link-hover: var(--color-1-500);
+
+  /* text colors */
+  --color-headings: var(--color-1-800);
+  --color-text: var(--color-1-600);
+}
